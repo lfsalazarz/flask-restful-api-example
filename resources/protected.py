@@ -6,12 +6,8 @@ from flask_jwt_extended import jwt_required, fresh_jwt_required
 from flask_jwt_extended import get_jwt_claims, get_raw_jwt
 # @jwt_optional
 
+from config.constants import OK
 
-# 2xx Success
-OK = 200
-CREATED = 201
-ACCEPTED = 202
-NO_CONTENT = 204
 
 class Protected(Resource):
 
@@ -20,7 +16,7 @@ class Protected(Resource):
     def get(cls):
         claims = get_jwt_claims()
         return {
-            "result": "get", 
+            "method": "get", 
             "jwt": "fresh_jwt_required",
             "claims": claims
         }, OK
@@ -32,7 +28,7 @@ class Protected(Resource):
         claims = get_jwt_claims()
         raw_jwt = get_raw_jwt()
         return {
-            "result": "post",
+            "method": "post",
             "data": data,
             "jwt": "jwt_required",
             "claims": claims,
@@ -44,7 +40,7 @@ class Protected(Resource):
     def put(cls):
         data = request.get_json()
         return {
-            "result": "put",
+            "method": "put",
             "data": data,
             "jwt": "jwt_required"
         }, OK
@@ -53,6 +49,6 @@ class Protected(Resource):
     @fresh_jwt_required
     def delete(cls):
         return {
-            "result": "delete",
+            "method": "delete",
             "jwt": "fresh_jwt_required"
         }, OK

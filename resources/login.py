@@ -10,19 +10,7 @@ from flask_jwt_extended import (
     # get_raw_jwt, # this will return the python dictionary which has all of the claims of the JWT 
 )
 
-
-# 2xx Success
-OK = 200
-CREATED = 201
-ACCEPTED = 202
-NO_CONTENT = 204
-# 4xx Client Error
-BAD_REQUEST = 400
-UNAUTHORIZED = 401
-FORBIDDEN = 403
-NOT_FOUND = 404
-METHOD_NOT_ALLOWED = 405
-NOT_ACCEPTABLE = 406
+from config.constants import OK, UNAUTHORIZED
 
 
 class Login(Resource):

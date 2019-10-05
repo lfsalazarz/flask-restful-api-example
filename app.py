@@ -16,7 +16,7 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 # https://flask-jwt-extended.readthedocs.io/en/latest/options.html
 app.secret_key = os.environ.get("APP_SECRET_KEY")
 app.config['JWT_ALGORITHM'] = 'RS256' # https://pyjwt.readthedocs.io/en/latest/algorithms.html
-app.config['JWT_PUBLIC_KEY'] = open('./certs/localhost.crt').read()
+app.config['JWT_PUBLIC_KEY'] = open('./certs/pubkey.pem').read()
 app.config['JWT_PRIVATE_KEY'] = open('./certs/localhost.key').read()
 api = Api(app)
 
