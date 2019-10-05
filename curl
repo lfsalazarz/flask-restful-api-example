@@ -16,4 +16,4 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $FRES
 curl -X GET -H "Authorization: Bearer $ACCESS" http://localhost:5000/protected
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS" -d '{"item":"foo"}' http://localhost:5000/protected
 curl -X PUT -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS" -d '{"item":"foo"}' http://localhost:5000/protected
-curl -X DELETE -H "Authorization: Bearer $ACCESS"http://localhost:5000/protected
+curl -X DELETE -H "Authorization: Bearer $ACCESS" http://localhost:5000/protected

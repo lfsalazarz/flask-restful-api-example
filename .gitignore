@@ -1,2 +1,4 @@
 __pycache__
 resources/__pycache__
+certs/localhost.crt
+certs/localhost.key
