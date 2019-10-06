@@ -1,7 +1,10 @@
 
 curl -X GET http://localhost:5000/item/foo
-curl -X POST -H "Content-Type: application/json" -d '{"item":"bar"}' http://localhost:5000/item/foo
-curl -X PUT -H "Content-Type: application/json" -d '{"item":"baz"}' http://localhost:5000/item/foo
+curl -X POST -H "Content-Type: application/json" \
+    -d '{"name": "bar","serial": 12345,"date": "2019-10-05 13:35","colors": ["black", "red", "green"]}' \
+    http://localhost:5000/item/foo
+curl -X PUT -H "Content-Type: application/json" \
+    -d '{"name": "bar","serial": 12345,"date": "2019-10-05 13:35"}' http://localhost:5000/item/foo
 curl -X DELETE http://localhost:5000/item/foo
 
 curl -X GET http://localhost:5000/items

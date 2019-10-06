@@ -2,3 +2,4 @@ Flask-RESTful
 Flask-JWT-Extended
 python-dotenv
 cryptography
+pydantic

@@ -2,7 +2,14 @@
 from flask import request
 from flask_restful import Resource
 
-from config.constants import OK
+# Schemas imports
+from schemas.item import ItemSchema
+from json import loads
+from pydantic import ValidationError
+from config.decorators import validation
+
+from config.constants import OK, BAD_REQUEST
+
 
 class Item(Resource):
     @classmethod
@@ -13,12 +20,15 @@ class Item(Resource):
         }, OK
 
     @classmethod
+    @validation
     def post(cls, name: str):
         data = request.get_json()
+        data = ItemSchema(**data)
         return {
             "method": "post",
-            "data": data
+            "data": loads(data.json())
         }, OK
+        
 
     @classmethod
     def delete(cls, name: str):
@@ -29,11 +39,15 @@ class Item(Resource):
 
     @classmethod
     def put(cls, name: str):
-        data = request.get_json()
-        return {
-            "method": "put",
-            "data": data
-        }, OK
+        try:
+            data = request.get_json()
+            data = ItemSchema(**data)
+            return {
+                "method": "put",
+                "data": loads(data.json())
+            }, OK
+        except ValidationError as e:
+            return {"err": loads(e.json())}, BAD_REQUEST
 
 
 class ItemList(Resource):
