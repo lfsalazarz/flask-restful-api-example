@@ -8,7 +8,3 @@ class ItemSchema(BaseModel):
     serial: int
     date: datetime = None
     colors: List[str] = []
-
-# from pydantic.dataclasses import dataclass
-#@dataclass
-#class ItemSchema:

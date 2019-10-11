@@ -5,7 +5,7 @@ from flask_restful import Resource
 from flask_jwt_extended import jwt_required, fresh_jwt_required
 from flask_jwt_extended import get_jwt_claims, get_raw_jwt
 # @jwt_optional
-
+# HTTP Status Codes
 from config.constants import OK
 
 

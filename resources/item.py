@@ -7,7 +7,7 @@ from schemas.item import ItemSchema
 from json import loads
 from pydantic import ValidationError
 from config.decorators import validation
-
+# HTTP Status Codes
 from config.constants import OK, BAD_REQUEST
 
 
@@ -28,7 +28,6 @@ class Item(Resource):
             "method": "post",
             "data": loads(data.json())
         }, OK
-        
 
     @classmethod
     def delete(cls, name: str):
