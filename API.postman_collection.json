@@ -1,0 +1,823 @@
+{
+	"info": {
+		"_postman_id": "d7083488-2d40-44c4-aa48-e51269af91e9",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ac2efd0-ae1e-4e12-ac62-b626538b7a95",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.globals.set(\"access_token\", jsonData.access_token);",
+							"pm.globals.set(\"refresh_token\", jsonData.refresh_token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1244"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.16.0 Python/3.6.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Oct 2019 04:57:25 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzA3Njk4NDUsIm5iZiI6MTU3MDc2OTg0NSwianRpIjoiOGNmYWU0MjEtMDBmNi00Njk5LWIwYWMtOTEyM2Q3MDgyMTdhIiwiZXhwIjoxNTcwNzcwNzQ1LCJpZGVudGl0eSI6IjEyMzQ1IiwiZnJlc2giOnRydWUsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJ1c2VyX2NsYWltc19sb2FkZXIiOiJ2YWx1ZSJ9fQ.Sc2i4eoANQAR1mfN3H-Mldy63-E0orbF6Zq7qRJ9u6m5DUMOjRazAxsuauZXiwVd8pIvixqdOGZrEq8P4inaUekKS9Z5Pgec-Xw3n1cmineXQMGRawhi8l6FTcPz9xUCTugtU4bRoJ7RATFJ6d4Pqy2w2Bio5f5XYNpRpTuF50BqKtN5b06_L6fPp7ufE_NCTIV_OXwM5CcO0nXgFRsTxZwAqn5vcm7JyPF6sSHyGH20t6FB5ULVOGWDRRUJbe1ZXG4chsuEb2bLO-e9PZE4aHEvbtPki2RSSbD2ypBeToDqwVnxDC75vLCX1N_MTQx-qDsrFDUaQRDJIwxcnJLs5g\",\n    \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzA3Njk4NDUsIm5iZiI6MTU3MDc2OTg0NSwianRpIjoiOGFhYTA4ZjgtMWExOC00ZDNjLWEzZWMtZThhNGRlYzc4MWJiIiwiZXhwIjoxNTczMzYxODQ1LCJpZGVudGl0eSI6IjEyMzQ1IiwidHlwZSI6InJlZnJlc2gifQ.lVb7S3OV2dIyldenL1RSRw-vO6Bq5urth-mtflZ3DbkG6IU_S37-jJjh1RxmiJS_aLHyqoPu-MYEn006cdafR-cnYW_7i8bMCZ18hjGWlT1PMZaFp3DgpcueCKzoUeHagyEq8lzzmhk1HmeyhEJhBYt47EiYWJzFo01rHQEANI1Q6a2GkqFsiO9LOpOeL0nvYLkO_SCn2Pl_M4_G5MbMFg1kKFNZafSgJ_qLTtKOrvMxNiaFnx52qtNN-F4rOfuXst5ASzUw9wzhzP3M5a5-sA1n5MRYd-y3Lo96AFeU4sGoHg94-5_CmbdrvzHX508Sy8YtnYtahRtuDCjqtPOHXw\"\n}"
+				},
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1244"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.16.0 Python/3.6.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Oct 2019 05:06:27 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzA3NzAzODcsIm5iZiI6MTU3MDc3MDM4NywianRpIjoiYjYyZmNhODItMDMzNi00YzVmLWJmY2QtNTkxNzYxMmFmY2I4IiwiZXhwIjoxNTcwNzcxMjg3LCJpZGVudGl0eSI6IjEyMzQ1IiwiZnJlc2giOnRydWUsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJ1c2VyX2NsYWltc19sb2FkZXIiOiJ2YWx1ZSJ9fQ.EVDaXGnnL2U8K_WYYBVFOvdubUIP6j8_G77GDgJCO-f0bc6w27ZcX856ozpgNN3mOQb2K4zwX_RyaGJua9WFNRFj_NYKXO36FaC9XwLvTSGKARXboLpCu7-zVuycaYnOzD6N3cbvHf27WooJFah1vgYIKZ-EVkMBoszh_G1NPez7gHHIO2Njs0zcAWxdtDbJZMpxledx_oZzs3nOqXzhkv8IUAVElzvKBbzdVoqgjGQ20VrAzonKFqQi8nRQ0DNx49dWzZtfpajMihWoFHnJDmbywm45EI_qScmDeYVJKCrX-0OXm9JTDFmg-KZaTrWj1WEiMIhd4FEDkHNB-UsFwg\",\n    \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzA3NzAzODcsIm5iZiI6MTU3MDc3MDM4NywianRpIjoiMzg0ZWNmNzMtMDFjOS00ZWJlLWFlNmYtMzc2M2I2YWRmY2NkIiwiZXhwIjoxNTczMzYyMzg3LCJpZGVudGl0eSI6IjEyMzQ1IiwidHlwZSI6InJlZnJlc2gifQ.P_M4Q06D28Ucv83v7BWaM6_gBW-XFlaFLPU9KoxJQbwDJ0Snt1Mnj3FhcvBeKHIVWAK7CTpFYQ29JiaXOjxAawso0FAS57O7GTtrFVR2F5lApR9tMfJqQ7BUsAHNDWJpPqvB1pKme6h9EwDIfMW8crko57VyMAZntDohtk1o6q-lQMrJThbT0SSCR5Jw2qJEdhNwekqZiofAff44hEFOB5-LFVigUUBDSRgIy9LEBqs07UmYROwEOzXrNGiT6sp5Rogp1erZbcyL4O4zTs4miP7Q4dUllSiI-g7ER4BSmlrRM1N5bWYYK18yoSe4ZoC3iuxWvTKXRxM4vt4mP4UDlg\"\n}"
+				}
+			]
+		},
+		{
+			"name": "refresh",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ac2efd0-ae1e-4e12-ac62-b626538b7a95",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.globals.set(\"access_token\", jsonData.access_token);",
+							"pm.globals.set(\"refresh_token\", jsonData.refresh_token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{refresh_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/refresh",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"refresh"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1244"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.16.0 Python/3.6.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Oct 2019 04:57:25 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzA3Njk4NDUsIm5iZiI6MTU3MDc2OTg0NSwianRpIjoiOGNmYWU0MjEtMDBmNi00Njk5LWIwYWMtOTEyM2Q3MDgyMTdhIiwiZXhwIjoxNTcwNzcwNzQ1LCJpZGVudGl0eSI6IjEyMzQ1IiwiZnJlc2giOnRydWUsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJ1c2VyX2NsYWltc19sb2FkZXIiOiJ2YWx1ZSJ9fQ.Sc2i4eoANQAR1mfN3H-Mldy63-E0orbF6Zq7qRJ9u6m5DUMOjRazAxsuauZXiwVd8pIvixqdOGZrEq8P4inaUekKS9Z5Pgec-Xw3n1cmineXQMGRawhi8l6FTcPz9xUCTugtU4bRoJ7RATFJ6d4Pqy2w2Bio5f5XYNpRpTuF50BqKtN5b06_L6fPp7ufE_NCTIV_OXwM5CcO0nXgFRsTxZwAqn5vcm7JyPF6sSHyGH20t6FB5ULVOGWDRRUJbe1ZXG4chsuEb2bLO-e9PZE4aHEvbtPki2RSSbD2ypBeToDqwVnxDC75vLCX1N_MTQx-qDsrFDUaQRDJIwxcnJLs5g\",\n    \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzA3Njk4NDUsIm5iZiI6MTU3MDc2OTg0NSwianRpIjoiOGFhYTA4ZjgtMWExOC00ZDNjLWEzZWMtZThhNGRlYzc4MWJiIiwiZXhwIjoxNTczMzYxODQ1LCJpZGVudGl0eSI6IjEyMzQ1IiwidHlwZSI6InJlZnJlc2gifQ.lVb7S3OV2dIyldenL1RSRw-vO6Bq5urth-mtflZ3DbkG6IU_S37-jJjh1RxmiJS_aLHyqoPu-MYEn006cdafR-cnYW_7i8bMCZ18hjGWlT1PMZaFp3DgpcueCKzoUeHagyEq8lzzmhk1HmeyhEJhBYt47EiYWJzFo01rHQEANI1Q6a2GkqFsiO9LOpOeL0nvYLkO_SCn2Pl_M4_G5MbMFg1kKFNZafSgJ_qLTtKOrvMxNiaFnx52qtNN-F4rOfuXst5ASzUw9wzhzP3M5a5-sA1n5MRYd-y3Lo96AFeU4sGoHg94-5_CmbdrvzHX508Sy8YtnYtahRtuDCjqtPOHXw\"\n}"
+				},
+				{
+					"name": "refresh",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/refresh",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"refresh"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "662"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.16.0 Python/3.6.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Oct 2019 05:05:38 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzA3NzAzMzgsIm5iZiI6MTU3MDc3MDMzOCwianRpIjoiYzI1NTk1ZTUtYjA5OS00YmE4LWFlMWEtYjdlZjA0N2E3ZDgyIiwiZXhwIjoxNTcwNzcxMjM4LCJpZGVudGl0eSI6IjEyMzQ1IiwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIiwidXNlcl9jbGFpbXMiOnsidXNlcl9jbGFpbXNfbG9hZGVyIjoidmFsdWUifX0.bJPuFTxFODuzlNdiwxUVKoSw71Zn3alkcScuHVjXH1RJQ9ihTegbRENr_66KfUZSl6ZTx8pwmgkiAOJhTdmXqMHIxQeikBkHlnsAjb8z1QprZmvDU4cjamyqLkTSRCFa5_M_rCa3HwEAWVXTho_yqBQEdasO-V1pLyAuCkjD9y9yyT6y36e_sCLH3FUS0u7pHksBoB6v6zkjLlgr8JnpRLv7xD2WxjKffJHX8YhbxPxDDT1bxloSu6Eq9QEnq0afgBMt_-MG-9Vxb0g1HHAm1Hig_UV131jEZORWZYtHIzxKmiqnBRX2YQXJ3WqMRZ4WCmEpO05aux8JbhlmNfklwA\"\n}"
+				}
+			]
+		},
+		{
+			"name": "item/<name>",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"item Name\",\n\t\"serial\": 30,\n\t\"date\": \"1511913359.34238\",\n\t\"colors\": [\"black\", \"red\", \"green\", \"yellow\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/item/itemName",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"item",
+						"itemName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item/<name>",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/item/itemName",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"item",
+						"itemName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item/<name>",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/item/itemName",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"item",
+						"itemName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item/<name>",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"item Name\",\n\t\"serial\": 30,\n\t\"date\": \"1511913359.34238\",\n\t\"colors\": [\"black\", \"red\", \"green\", \"yellow\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/item/itemName",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"item",
+						"itemName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "protected",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"item Name\",\n\t\"serial\": 30,\n\t\"date\": \"1511913359.34238\",\n\t\"colors\": [\"black\", \"red\", \"green\", \"yellow\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/protected",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"protected"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "protected",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"item Name\",\n\t\"serial\": 30,\n\t\"date\": \"1511913359.34238\",\n\t\"colors\": [\"black\", \"red\", \"green\", \"yellow\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/protected",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"protected"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "649"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.16.0 Python/3.6.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Oct 2019 05:05:57 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"method\": \"post\",\n    \"data\": {\n        \"name\": \"item Name\",\n        \"serial\": 30,\n        \"date\": \"1511913359.34238\",\n        \"colors\": [\n            \"black\",\n            \"red\",\n            \"green\",\n            \"yellow\"\n        ]\n    },\n    \"jwt\": \"jwt_required\",\n    \"claims\": {\n        \"user_claims_loader\": \"value\"\n    },\n    \"raw_jwt\": {\n        \"iat\": 1570770338,\n        \"nbf\": 1570770338,\n        \"jti\": \"c25595e5-b099-4ba8-ae1a-b7ef047a7d82\",\n        \"exp\": 1570771238,\n        \"identity\": \"12345\",\n        \"fresh\": false,\n        \"type\": \"access\",\n        \"user_claims\": {\n            \"user_claims_loader\": \"value\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "protected",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"item Name\",\n\t\"serial\": 30,\n\t\"date\": \"1511913359.34238\",\n\t\"colors\": [\"black\", \"red\", \"green\", \"yellow\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/protected",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"protected"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "protected",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"item Name\",\n\t\"serial\": 30,\n\t\"date\": \"1511913359.34238\",\n\t\"colors\": [\"black\", \"red\", \"green\", \"yellow\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/protected",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"protected"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "271"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.16.0 Python/3.6.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Oct 2019 05:06:06 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"method\": \"put\",\n    \"data\": {\n        \"name\": \"item Name\",\n        \"serial\": 30,\n        \"date\": \"1511913359.34238\",\n        \"colors\": [\n            \"black\",\n            \"red\",\n            \"green\",\n            \"yellow\"\n        ]\n    },\n    \"jwt\": \"jwt_required\"\n}"
+				}
+			]
+		},
+		{
+			"name": "protected",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/protected",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"protected"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "protected",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/protected",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"protected"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
