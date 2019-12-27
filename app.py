@@ -5,6 +5,7 @@ import os
 from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 
 # Resources imports
 from resources.item import Item, ItemList
@@ -22,8 +23,17 @@ app.config['JWT_ALGORITHM'] = 'RS256' # https://pyjwt.readthedocs.io/en/latest/a
 app.config['JWT_PUBLIC_KEY'] = open('./certs/pubkey.pem').read()
 app.config['JWT_PRIVATE_KEY'] = open('./certs/localhost.key').read()
 api = Api(app)
-
+# cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app)
 jwt = JWTManager(app)
+
+
+# @app.after_request
+# def after_request(response):
+#   response.headers.add('Access-Control-Allow-Origin', '*')
+#   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+#   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+#   return response
 
 @jwt.user_claims_loader
 def add_claims_to_jwt(identity):
