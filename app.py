@@ -7,6 +7,8 @@ from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 
+from dotenv import load_dotenv
+
 # Resources imports
 from resources.item import Item, ItemList
 from resources.login import Login, TokenRefresh
@@ -14,6 +16,7 @@ from resources.protected import Protected
 # HTTP Status Codes
 from config.constants import UNAUTHORIZED
 
+load_dotenv(".env")
 
 app = Flask(__name__)
 app.config['PROPAGATE_EXCEPTIONS'] = True
